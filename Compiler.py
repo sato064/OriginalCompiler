@@ -88,6 +88,18 @@ while(PG < P_Len):
         if(f1[PG][n] == "="):
             if(f1[PG][n+1] == ">"):
                 print("IF:RETURN 114")
+
+        if(f1[PG][n] == "("):
+            print("(:RETURN 40")
+        
+        if(f1[PG][n] == ")"):
+            print("):RETURN 42")
+        
+        if(f1[PG][n] == "{"):
+            print("{:RETURN 41")
+        
+        if(f1[PG][n] == "}"):
+            print("}:RETURN 43")
         
 
         
