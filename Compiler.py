@@ -4,8 +4,15 @@ file1 = open(path1,'r',encoding='utf-8')
 f1 = file1.readlines()
 file1.close()
 
+
+fileobj = open("Source.C", "w")
+
+
+
 #Print_SourceCode
 print(f1)
+
+
 
 #Analysis
 P_Len = len(f1)
@@ -19,8 +26,11 @@ while(PG < P_Len):
     n = 0
     if(f1[PG] == "START\n"):
         print("START:RETURN 10000")
-    if(f1[PG] == "END"):
+        fileobj.write("#include <stdio.h>\nvoid main void(){\n")
+
+    if(f1[PG] == "END\n"):
         print("END:RETURN 10001")
+        fileobj.write("\n}")
     
     #if(f1[PG] == )
     #print(len(f1[PG]))
@@ -50,9 +60,19 @@ while(PG < P_Len):
                         if(f1[PG][n+4] == "t"):
                             print("PRINT:RETURN 11")
         
+        if(f1[PG][n] == "d"):
+            if(f1[PG][n+1] == "e"):
+                if(f1[PG][n+2] == "f"):
+                    print("DEF 10")
+                    fileobj.write("int " + f1[PG][n+5] + f1[PG][n+6]+ f1[PG][n+7] + f1[PG][n+8])
+
+
+        
         
         if(f1[PG][n] == "$"):
             print("ID:RETURN 1000")
+            #fileobj.write("int " + f1[PG][n+1])
+
         
         if(f1[PG][n] == "+"):
             print("+:RETURN 100")
@@ -107,9 +127,7 @@ while(PG < P_Len):
     
     PG += 1
 
+fileobj.close
 
 
 
-
-
-#print(f1)
