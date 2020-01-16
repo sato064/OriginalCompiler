@@ -79,6 +79,7 @@ while(PG < P_Len):
             print("ID:RETURN 1000")
             if(pflg):
                 fileobj.write(f1[PG][n+1] + ")")
+                pflg = False
             else:
                 fileobj.write(f1[PG][n+1])
 
