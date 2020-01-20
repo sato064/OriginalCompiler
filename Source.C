@@ -1,9 +1,26 @@
 #include <stdio.h>
 int main(){
 
-int a=5;
-if(a==10){a=20;}
-while(a<20){a=a+1;}
-printf("%d",a);
+int abc;
+int b;
+int r;
+int tmp;
+
+scanf("%d",&abc);
+scanf("%d",&b);
+
+if(abc<b){
+tmp=abc;
+abc=b;
+b=tmp;
+}
+r=abc%b;
+while(r!=0){
+abc=b;
+b=r;
+r=abc%b;
+}
+
+printf("%d",b);
 
 }

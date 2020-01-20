@@ -21,6 +21,8 @@ PG = 0
 n = 0
 
 pflg = False
+sflg = False
+
 
 
 while(PG < P_Len):
@@ -56,6 +58,9 @@ while(PG < P_Len):
             if(f1[PG][n+1] == "e"):
                 if(f1[PG][n+2] == "t"):
                     print("GET:RETURN 10")
+                    fileobj.write('scanf("%d",&')
+                    pflg = True
+
         
         if(f1[PG][n] == "p"):
             if(f1[PG][n+1] == "r"):
@@ -70,7 +75,10 @@ while(PG < P_Len):
             if(f1[PG][n+1] == "e"):
                 if(f1[PG][n+2] == "f"):
                     print("DEF 10")
-                    fileobj.write("int " + f1[PG][n+4])
+                    fileobj.write("int ")
+                    #i = 4
+                    #while(f1[PG][n+i] != "$"):
+                        #fileobj.write(f1[PG][n+i])
 
 
         
@@ -78,10 +86,22 @@ while(PG < P_Len):
         if(f1[PG][n] == "$"):
             print("ID:RETURN 1000")
             if(pflg):
-                fileobj.write(f1[PG][n+1] + ")")
+                i = 1
+                while(f1[PG][n+i] != "~"):
+                    fileobj.write(f1[PG][n+i])
+                    i += 1
+                fileobj.write(")")
+                slfg = False
                 pflg = False
+
             else:
-                fileobj.write(f1[PG][n+1])
+                i = 1
+                while(f1[PG][n+i] != "~"):
+                    #print("-------------" + f1[PG][n+i])
+                    fileobj.write(f1[PG][n+i])
+                    i += 1
+
+
 
         
         if(f1[PG][n] == "+"):
@@ -119,6 +139,10 @@ while(PG < P_Len):
         if(f1[PG][n] == ">"):
             print(">:RETURN 112")
             fileobj.write(">")
+        
+        if(f1[PG][n] == "!"):
+            print(">:RETURN 115")
+            fileobj.write("!")
         
         if(f1[PG][n] == "="):
             if(f1[PG][n+1] == "<"):
