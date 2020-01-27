@@ -29,25 +29,27 @@ e_flg = False
 pe_flg = False
 ge_flg = False
 de_flg = False
+ee_flg = False
 
 str_flg = True
 end_flg = True
 
 
-
 while(PG < P_Len):
-    # print(f1[PG])
     n = 0
-    if(f1[PG] == "START\n"):
+    if(f1[0] == "START\n" and str_flg == True):
         #print("START:RETURN 10000")
         fileobj.write("#include <stdio.h>\nint main(){\n")
         str_flg = False
 
-    if(f1[PG] == "END\n"):
+    if (f1[PG] == "END\n" and end_flg == True):
+        if(PG == P_Len -1):
         ##print("END:RETURN 10001")
-        fileobj.write("\nreturn 1;\n}")
-        end_flg = False
-
+            fileobj.write("\nreturn 1;\n}")
+            end_flg = False
+        else:
+            print("ERROR_ENDがソースコードの途中に含まれています")
+            ee_flg = True
     # if(f1[PG] == )
     # print(len(f1[PG]))
 
@@ -73,8 +75,8 @@ while(PG < P_Len):
                     fileobj.write('scanf("%d",&')
                     pflg = True
                     if (f1[PG][n + 4] != "$"):
-                                ge_flg = True
-                                e_flg = True
+                        ge_flg = True
+                        e_flg = True
 
         if(f1[PG][n] == "p"):
             if(f1[PG][n+1] == "r"):
@@ -94,8 +96,8 @@ while(PG < P_Len):
                     #print("DEF 10")
                     fileobj.write("int ")
                     if (f1[PG][n + 4] != "$"):
-                                de_flg = True
-                                e_flg = True
+                        de_flg = True
+                        e_flg = True
                     #i = 4
                     # while(f1[PG][n+i] != "$"):
                     # fileobj.write(f1[PG][n+i])
@@ -237,13 +239,15 @@ while(PG < P_Len):
     if(e_flg == False):
         PG_e += 1
     fileobj.write("\n")
-    
+
 
 if(str_flg):
     print("ERROR-STARTがありません(1)行目")
     fflg = False
 if(end_flg):
     print("ERROR-ENDがありません(" + str(PG) + "行目)")
+    fflg = False
+if(ee_flg):
     fflg = False
 if (pe_flg):
     print("ERROR_Printの引数が無いか，変数の前に＄がありません(" + str(PG_e+1) + "行目)")
@@ -257,5 +261,6 @@ if (de_flg):
 
 if(fflg):
     print("Compile finished")
+
 
 fileobj.close
