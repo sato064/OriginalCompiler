@@ -23,4 +23,5 @@ r=abc%b;
 
 printf("%d",b);
 
+return 1;
 }
