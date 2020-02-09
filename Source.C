@@ -1,27 +1,22 @@
 #include <stdio.h>
 int main(){
 
-int abc;
-int b;
-int r;
-int tmp;
+int number);
+int reverce);
+reverce)=0;
 
-scanf("%d",&abc);
-scanf("%d",&b);
+scanf("%d",&number);
 
-if(abc<b){
-tmp=abc;
-abc=b;
-b=tmp;
+while(number)>0){
+
+reverce)=reverce)*10+number)%10;
+number)=number)/10;
+
+
+
 }
-r=abc%b;
-while(r!=0){
-abc=b;
-b=r;
-r=abc%b;
-}
+printf("%d",(reverce));
 
-printf("%d",b);
 
-return 1;
+return 0;
 }

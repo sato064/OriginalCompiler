@@ -1,0 +1,29 @@
+START
+def $i~;
+def $a~;
+def $b~;
+
+$i~ = 1;
+
+while($i~ <= 100){
+    
+    if($i~ % 3 == 0 && $i~ % 5 == 0){
+        print(_FizzBuzz\n_);
+    }
+    else if($i~ % 3 == 0){
+        print(_Fizz\n_);
+    }
+    else if($i~ % 5 == 0){
+        
+        print(_Buzz\n_);
+    }
+    else{
+        print($i~);
+        print(_\n_);
+    }
+    $i~ += 1;
+    
+    
+}
+
+END

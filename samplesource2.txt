@@ -1,0 +1,11 @@
+START
+def $i~;
+def $a~;
+def $b~;
+def error
+
+$i~ = 1;
+
+
+
+END
