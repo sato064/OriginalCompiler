@@ -120,7 +120,6 @@ while(PG < P_Len):
 
         if(f1[PG][n] == "$"):
             # print("ID:RETURN 1000")
-            pflg = True
             if(pflg):
                 i = 1
                 while(f1[PG][n+i] != "~"):

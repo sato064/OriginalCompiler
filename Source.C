@@ -3,14 +3,14 @@ int main(){
 
 int number);
 int reverce);
-reverce)=0;
+reverce=0;
 
 scanf("%d",&number);
 
-while(number)>0){
+while(number>0){
 
-reverce)=reverce)*10+number)%10;
-number)=number)/10;
+reverce=reverce*10+number%10;
+number=number/10;
 
 
 
