@@ -1,8 +1,8 @@
 #include <stdio.h>
 int main(){
 
-int number);
-int reverce);
+int number;
+int reverce;
 reverce=0;
 
 scanf("%d",&number);

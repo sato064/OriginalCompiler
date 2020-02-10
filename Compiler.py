@@ -109,7 +109,6 @@ while(PG < P_Len):
             if(f1[PG][n+1] == "e"):
                 if(f1[PG][n+2] == "f"):
                     # print("DEF 10")
-                    pflg = True
                     fileobj.write("int ")
                     if (f1[PG][n + 4] != "$"):
                         de_flg = True
